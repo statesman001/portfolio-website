@@ -1,0 +1,480 @@
+/* ============================================================
+   style.css  —  Portfolio Website
+   Author : Nnamdi Ignatius Ignatius
+   Course : Information Technology, Miva Open University
+   ------------------------------------------------------------
+   SECTIONS
+   01. Custom properties (CSS variables) & theming
+   02. Reset and base typography
+   03. Layout helpers
+   04. Header and navigation
+   05. Hero section
+   06. Cards, grids and buttons
+   07. Skills (progress bars)
+   08. Forms
+   09. Footer and back-to-top
+   10. Animation utilities
+   11. Responsive breakpoints
+   ============================================================ */
+
+/* ---------- 01. CUSTOM PROPERTIES & THEMING ---------- */
+/* Variables are declared once on :root and reused everywhere.
+   The dark theme simply re-declares the same variable names, so a
+   single attribute change on <html> re-colours the entire site. */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1b2130;
+  --text-soft: #5a6478;
+  --brand: #14213d;
+  --accent: #2a9d8f;
+  --accent-soft: #e4f3f1;
+  --border: #dfe3ec;
+  --shadow: 0 6px 22px rgba(20, 33, 61, 0.08);
+  --radius: 10px;
+  --maxw: 1100px;
+  --space: 1rem;
+  --font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Consolas", "Courier New", monospace;
+}
+
+/* Dark theme: activated by JavaScript via <html data-theme="dark"> */
+html[data-theme="dark"] {
+  --bg: #0f1420;
+  --surface: #171e2d;
+  --text: #e8ecf4;
+  --text-soft: #a4adc0;
+  --brand: #e8ecf4;
+  --accent: #4ecdc4;
+  --accent-soft: #1d2b36;
+  --border: #2a3344;
+  --shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- 02. RESET AND BASE TYPOGRAPHY ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 { color: var(--brand); line-height: 1.25; font-weight: 700; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); margin-bottom: 0.75rem; }
+h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+p  { margin-bottom: 1rem; color: var(--text-soft); }
+a  { color: var(--accent); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ---------- 03. LAYOUT HELPERS ---------- */
+.container {
+  width: 90%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.section { padding: 4rem 0; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  background-color: var(--accent);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+/* ---------- 04. HEADER AND NAVIGATION ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--brand);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.logo span { color: var(--accent); }
+
+.nav-menu {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: var(--text);
+  font-size: 0.95rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-menu a:hover { color: var(--accent); }
+
+/* .active is added by JavaScript to the link of the current page */
+.nav-menu a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.nav-controls { display: flex; align-items: center; gap: 0.6rem; }
+
+.icon-btn {
+  background-color: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease;
+}
+.icon-btn:hover { transform: scale(1.08); }
+
+.menu-toggle { display: none; }
+
+/* ---------- 05. HERO SECTION ---------- */
+.hero {
+  padding: 3.5rem 0;
+  background: linear-gradient(135deg, var(--accent-soft), var(--bg));
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* #typed-role is filled character-by-character by JavaScript */
+.hero .role {
+  font-size: 1.15rem;
+  color: var(--text);
+  font-weight: 600;
+  min-height: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: var(--accent);
+  animation: blink 0.9s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero-photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 6px solid var(--surface);
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+  background-color: var(--accent-soft);
+}
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem; }
+
+/* ---------- 06. CARDS, GRIDS AND BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid var(--accent);
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background-color: var(--accent); color: #ffffff; }
+.btn-primary:hover { background-color: transparent; color: var(--accent); }
+.btn-outline { background-color: transparent; color: var(--accent); }
+.btn-outline:hover { background-color: var(--accent); color: #ffffff; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover { transform: translateY(-6px); }
+
+.card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+}
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+/* Filter buttons on the Projects page */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.filter-btn:hover { border-color: var(--accent); }
+.filter-btn.active { background-color: var(--accent); color: #ffffff; border-color: var(--accent); }
+
+/* .is-hidden is applied by the filter script to cards that do not match */
+.is-hidden { display: none !important; }
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.stat { text-align: center; padding: 1.2rem 0.5rem; }
+.stat strong { display: block; font-size: 1.9rem; color: var(--accent); }
+.stat span { font-size: 0.85rem; color: var(--text-soft); }
+
+/* ---------- 07. SKILLS (PROGRESS BARS) ---------- */
+.skill { margin-bottom: 1.3rem; }
+
+.skill-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.bar {
+  height: 9px;
+  background-color: var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* width starts at 0 and is set by JavaScript when the bar scrolls into view */
+.bar-fill {
+  height: 100%;
+  width: 0;
+  background-color: var(--accent);
+  border-radius: 20px;
+  transition: width 1.1s ease-in-out;
+}
+
+.timeline { border-left: 2px solid var(--border); padding-left: 1.5rem; }
+.timeline li { position: relative; margin-bottom: 1.6rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -1.97rem;
+  top: 0.5rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+.timeline .when { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 600; }
+
+/* ---------- 08. FORMS ---------- */
+.form-group { margin-bottom: 1.1rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus { outline: none; border-color: var(--accent); }
+
+/* .input-error is added by the validation script to invalid fields */
+.form-group input.input-error,
+.form-group textarea.input-error { border-color: #c0392b; }
+
+.error-text {
+  display: block;
+  min-height: 1.1rem;
+  font-size: 0.8rem;
+  color: #c0392b;
+  margin-top: 0.2rem;
+}
+
+.form-message {
+  display: none;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+  background-color: var(--accent-soft);
+  border: 1px solid var(--accent);
+  color: var(--text);
+}
+.form-message.show { display: block; }
+
+/* ---------- 09. FOOTER AND BACK-TO-TOP ---------- */
+.site-footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+.site-footer p { margin-bottom: 0.3rem; }
+
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 90;
+}
+/* .show is toggled by the scroll listener in script.js */
+#backToTop.show { opacity: 1; visibility: visible; }
+
+/* ---------- 10. ANIMATION UTILITIES ---------- */
+/* .reveal elements start faded out; JavaScript adds .visible on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- 11. RESPONSIVE BREAKPOINTS ---------- */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-photo { width: 200px; height: 200px; order: -1; }
+  .btn-row { justify-content: center; }
+
+  .menu-toggle { display: grid; }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  /* .open is toggled by the hamburger button in script.js */
+  .nav-menu.open { max-height: 320px; }
+  .nav-menu li { width: 100%; text-align: center; }
+  .nav-menu a { display: block; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+}
+
+@media (max-width: 500px) {
+  .section { padding: 2.5rem 0; }
+  .card { padding: 1.2rem; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
