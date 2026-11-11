@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Nnamdi Ignatius Ignatius</title>
+  <meta name="description" content="About Nnamdi Ignatius Ignatius, Information Technology student at Miva Open University.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="logo">N<span>I</span>I</a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="icon-btn" id="themeToggle" aria-label="Switch between light and dark theme">&#9790;</button>
+          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>About Me</h2>
+        </div>
+
+        <div class="hero-grid">
+          <div class="reveal">
+            <p>
+              My name is Nnamdi Ignatius Ignatius and I am an undergraduate student in the
+              Department of Information Technology at Miva Open University. My studies cover
+              the fundamentals of computing, web technologies, databases and data analysis.
+            </p>
+            <p>
+              My interest in web development began with understanding how a browser turns plain
+              text into a document tree, and how CSS and JavaScript then work on that tree. This
+              portfolio is the practical outcome of that interest: the structure is written in
+              HTML, the presentation is handled entirely by an external stylesheet, and every
+              interactive feature is written in plain JavaScript without any framework.
+            </p>
+            <p>
+              Outside formal coursework I enjoy reading, research and photography, all of which
+              train the same habit that programming requires: paying attention to detail and
+              checking an assumption before depending on it.
+            </p>
+            <div class="btn-row">
+              <a href="projects.html" class="btn btn-primary">See My Projects</a>
+              <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+            </div>
+          </div>
+
+          <img src="../images/about.jpg" alt="Nnamdi Ignatius Ignatius presenting at a lectern" class="card-img reveal" style="height: 320px;">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background-color: var(--surface);">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Education</h2>
+        </div>
+
+        <ul class="timeline reveal">
+          <li>
+            <p class="when">2026 &ndash; Present</p>
+            <h3>B.Sc. Information Technology</h3>
+            <p>Miva Open University. Coursework in web development, programming fundamentals,
+               databases, networking and data analysis.</p>
+          </li>
+          <li>
+            <p class="when">Current Semester</p>
+            <h3>Web Technologies Laboratory</h3>
+            <p>Practical work in HTML document structure, CSS layout and styling, and client-side
+               scripting with JavaScript. This portfolio is the assessed laboratory project.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>How I Work</h2>
+        </div>
+        <div class="grid">
+          <article class="card reveal">
+            <h3>Structure First</h3>
+            <p>I write the HTML outline of a page before any styling, so the document tree is
+               meaningful on its own and remains readable without CSS.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Separation of Concerns</h3>
+            <p>Content stays in HTML, presentation in the stylesheet and behaviour in the script.
+               No inline styles and no inline event handlers are used.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Test on Small Screens</h3>
+            <p>Every layout is checked at mobile width first, then expanded for tablet and
+               desktop using media queries.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Nnamdi Ignatius Ignatius &mdash; Information Technology, Miva Open University.</p>
+      <p>Built with HTML, CSS and JavaScript for the Lab Assessment.</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Scroll back to top">&uarr;</button>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

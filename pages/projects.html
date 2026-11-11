@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Nnamdi Ignatius Ignatius</title>
+  <meta name="description" content="Student projects by Nnamdi Ignatius Ignatius, Information Technology, Miva Open University.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="logo">N<span>I</span>I</a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="icon-btn" id="themeToggle" aria-label="Switch between light and dark theme">&#9790;</button>
+          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>My Projects</h2>
+          <p>Use the buttons below to filter the projects by category.</p>
+        </div>
+
+        <!-- Filter buttons: each one carries the category it selects -->
+        <div class="filter-bar reveal">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="javascript">JavaScript</button>
+          <button class="filter-btn" data-filter="data">Data</button>
+        </div>
+
+        <p style="text-align:center;" id="resultCount">Showing 6 of 6 projects</p>
+
+        <div class="grid">
+          <!-- Each card stores its category in data-category for the filter -->
+          <article class="card project-card reveal" data-category="web">
+            <img src="../images/project-1.png" alt="Portfolio website thumbnail" class="card-img">
+            <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+            <h3>Personal Portfolio Website</h3>
+            <p>This five-page responsive portfolio, built for the laboratory assessment with an
+               external stylesheet, a shared script file and an organised folder structure.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="javascript">
+            <img src="../images/project-2.png" alt="Student record manager thumbnail" class="card-img">
+            <div class="tag-row"><span class="tag">JavaScript</span><span class="tag">localStorage</span></div>
+            <h3>Student Record Manager</h3>
+            <p>A browser-based application that adds, edits, searches and deletes student records
+               and keeps them in localStorage so the data survives a page refresh.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="javascript">
+            <img src="../images/project-3.png" alt="Quiz application thumbnail" class="card-img">
+            <div class="tag-row"><span class="tag">JavaScript</span><span class="tag">DOM</span></div>
+            <h3>Interactive Quiz Application</h3>
+            <p>A timed multiple-choice quiz that reads questions from an array, scores the
+               answers as they are selected and displays a result summary at the end.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="web">
+            <img src="../images/project-4.png" alt="Landing page thumbnail" class="card-img">
+            <div class="tag-row"><span class="tag">CSS Grid</span><span class="tag">Flexbox</span></div>
+            <h3>Responsive Landing Page</h3>
+            <p>A single-page layout exercise comparing CSS Grid and Flexbox, with a mobile-first
+               stylesheet and three breakpoints.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="data">
+            <img src="../images/project-5.png" alt="Expense tracker thumbnail" class="card-img">
+            <div class="tag-row"><span class="tag">JavaScript</span><span class="tag">Charts</span></div>
+            <h3>Expense Tracker</h3>
+            <p>A small budgeting tool that records income and expenses, calculates a running
+               balance and summarises spending by category.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="data">
+            <img src="../images/project-6.png" alt="Results analysis thumbnail" class="card-img">
+            <div class="tag-row"><span class="tag">Spreadsheet</span><span class="tag">Analysis</span></div>
+            <h3>Course Results Analysis</h3>
+            <p>A coursework exercise that cleans a results dataset, computes averages and
+               distributions, and presents the findings in a short written report.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Nnamdi Ignatius Ignatius &mdash; Information Technology, Miva Open University.</p>
+      <p>Built with HTML, CSS and JavaScript for the Lab Assessment.</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Scroll back to top">&uarr;</button>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
