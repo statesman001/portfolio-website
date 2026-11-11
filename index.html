@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Nnamdi Ignatius Ignatius</title>
+  <meta name="description" content="Portfolio website of Nnamdi Ignatius Ignatius, Information Technology student at Miva Open University.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER AND NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">N<span>I</span>I</a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/skills.html">Skills</a></li>
+          <li><a href="pages/projects.html">Projects</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button class="icon-btn" id="themeToggle" aria-label="Switch between light and dark theme">&#9790;</button>
+          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Miva Open University</p>
+          <h1>Nnamdi Ignatius Ignatius</h1>
+          <!-- The text inside this element is typed by JavaScript -->
+          <p class="role"><span id="typedRole"></span><span class="cursor">&nbsp;</span></p>
+          <p>
+            I am an Information Technology undergraduate building my practical skills in
+            front-end web development. This portfolio was developed as a lab assessment using
+            HTML for structure, CSS for presentation and JavaScript for interactivity.
+          </p>
+          <div class="btn-row">
+            <a href="pages/projects.html" class="btn btn-primary">View Projects</a>
+            <a href="pages/contact.html" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <img src="images/profile.png" alt="Profile photograph of Nnamdi Ignatius Ignatius" class="hero-photo" width="240" height="240">
+      </div>
+    </section>
+
+    <!-- ============ STUDENT DETAILS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Student Profile</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <h3>Institution</h3>
+            <p>Miva Open University</p>
+          </article>
+          <article class="card reveal">
+            <h3>Department</h3>
+            <p>Information Technology</p>
+          </article>
+          <article class="card reveal">
+            <h3>Matriculation Number</h3>
+            <p>2026/A/DSC/0028/30009291</p>
+          </article>
+          <article class="card reveal">
+            <h3>School Email</h3>
+            <p><a href="mailto:n.ignatius9291@miva.edu.ng">n.ignatius9291@miva.edu.ng</a></p>
+          </article>
+        </div>
+
+        <div class="stat-row reveal">
+          <div class="stat"><strong>5</strong><span>Pages Built</span></div>
+          <div class="stat"><strong>10</strong><span>JavaScript Functions</span></div>
+          <div class="stat"><strong>6</strong><span>Projects Listed</span></div>
+          <div class="stat"><strong>100%</strong><span>Responsive Layout</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT THIS SITE DEMONSTRATES ============ -->
+    <section class="section" style="background-color: var(--surface);">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>What This Lab Demonstrates</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="tag-row"><span class="tag">HTML</span></div>
+            <h3>Semantic Structure</h3>
+            <p>
+              Each page is organised with header, nav, main, section, article and footer
+              elements so that the document tree is readable and accessible.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="tag-row"><span class="tag">CSS</span></div>
+            <h3>External Stylesheet</h3>
+            <p>
+              One stylesheet in the css folder controls the whole site using custom
+              properties, Flexbox, CSS Grid, transitions and media queries.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="tag-row"><span class="tag">JavaScript</span></div>
+            <h3>Interactive Behaviour</h3>
+            <p>
+              One script in the js folder adds a theme switch, a mobile menu, a typing effect,
+              scroll animations, project filtering and form validation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Nnamdi Ignatius Ignatius &mdash; Information Technology, Miva Open University.</p>
+      <p>Built with HTML, CSS and JavaScript for the Lab Assessment.</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Scroll back to top">&uarr;</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
